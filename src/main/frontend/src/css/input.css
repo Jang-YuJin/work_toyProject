@@ -1,0 +1,22 @@
+.inputLabel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.saveBtn {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    justify-content: flex-end;
+}
+
+.delBtn {
+    margin-left: 10px;
+}

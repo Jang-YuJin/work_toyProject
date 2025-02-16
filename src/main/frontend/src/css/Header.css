@@ -1,0 +1,53 @@
+.nav {
+    background: #0d80d8;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav li{
+    list-style: none;
+    color: white;
+    float: left;
+    line-height: 30px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+@font-face {
+    font-family: "nanumSquareRoundB";
+    src: url("../font/NanumSquareRoundB.ttf");
+}
+
+@font-face {
+    font-family: "nanumSquareRoundEB";
+    src: url("../font/NanumSquareRoundEB.ttf");
+}
+
+@font-face {
+    font-family: "nanumSquareRoundL";
+    src: url("../font/NanumSquareRoundL.ttf");
+}
+
+@font-face {
+    font-family: "nanumSquareRoundR";
+    src: url("../font/NanumSquareRoundR.ttf");
+}
+
+.nav li a{
+    text-decoration:none;
+    color: white;
+    display: block;
+    width: 120px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "nanumSquareRoundB", Dotum, Arial;
+}
+
+.nav li a:hover{
+    color: #0d80d8;
+    background-color: rgb(255,255,255,0.8);
+    border-radius: 5px;
+}

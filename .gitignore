@@ -1,0 +1,35 @@
+# ---------------------
+# Node / React
+# ---------------------
+node_modules/
+build/
+.env
+
+# ---------------------
+# Java / Maven / Gradle
+# ---------------------
+target/
+build/
+.gradle/
+*.jar
+*.war
+*.ear
+
+# ---------------------
+# IntelliJ / Eclipse 등 IDE
+# ---------------------
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.vscode/
+
+# ---------------------
+# OS Files
+# ---------------------
+.DS_Store
+Thumbs.db
+
+# application.properties 무시
+application.properties

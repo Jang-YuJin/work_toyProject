@@ -1,0 +1,52 @@
+@font-face {
+  font-family: "nanumSquareRoundB";
+  src: url("./font/NanumSquareRoundB.ttf");
+}
+
+@font-face {
+  font-family: "nanumSquareRoundEB";
+  src: url("./font/NanumSquareRoundEB.ttf");
+}
+
+@font-face {
+  font-family: "nanumSquareRoundL";
+  src: url("./font/NanumSquareRoundL.ttf");
+}
+
+@font-face {
+  font-family: "nanumSquareRoundR";
+  src: url("./font/NanumSquareRoundR.ttf");
+}
+
+body {
+  margin: 0;
+  font-family: nanumSquareRoundB, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: nanumSquareRoundB, source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+#root{
+  flex: 1;
+}
+
+#wrap{
+  height: calc(100% - 80px);
+}

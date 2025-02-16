@@ -1,0 +1,12 @@
+.pagination{
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.count{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
