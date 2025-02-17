@@ -109,7 +109,7 @@ function TeamList() {
     const fetchData = async (pageNumber = 1, param = searchParams) => {
         try {
             const page = pageNumber - 1; // Spring Boot는 페이지 인덱스가 0부터 시작
-            const response = await fetch(`/team?page=${page}&size=${itemsPerPage}&name=${param.name}&managerName=${param.managerName}`);
+            const response = await fetch(process.env.REACT_APP_DB_HOST + `/team?page=${page}&size=${itemsPerPage}&name=${param.name}&managerName=${param.managerName}`);
             const data = await response.json();
 
             setTeam(data.content); // 현재 페이지의 데이터 저장

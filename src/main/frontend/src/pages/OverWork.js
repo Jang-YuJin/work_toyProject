@@ -30,7 +30,7 @@ function downloadExcel(selectedYear, selectedMonth) {
     const month = selectedMonth.selectedMonth;
 
     axios({
-        url: '/work/exceldownload',
+        url: process.env.REACT_APP_DB_HOST + '/work/exceldownload',
         method: 'GET',
         params: { year, month },
         responseType: 'blob',  // <-- blob 타입으로 받아야 파일 다운로드 가능
@@ -135,7 +135,7 @@ function OverWork() {
     const fetchDataFunc = async (pageNumber = 1) => {
         try {
             const page = pageNumber - 1;
-            const response = await fetch(`/work?year=${selectedYear}&month=${selectedMonth}&page=${page}&size=${itemsPerPage}`);
+            const response = await fetch(process.env.REACT_APP_DB_HOST + `/work?year=${selectedYear}&month=${selectedMonth}&page=${page}&size=${itemsPerPage}`);
             const data = await response.json();
             setFetchedData(data.content);
             setCurrentPage(1);

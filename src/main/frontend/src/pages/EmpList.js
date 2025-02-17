@@ -150,7 +150,7 @@ function DayOff({open, onClose, employeeId, employeeName, onApplied}){
 
     useEffect(() => {
        if(open && employeeId){
-           axios.get(`member/${employeeId}/dayOffReady`)
+           axios.get(process.env.REACT_APP_DB_HOST + `/member/${employeeId}/dayOffReady`)
                .then(res => {
                    const dayOffReady = res.data.dayOff != null ? res.data.dayOff : 0;
                    const current = new Date();
@@ -179,7 +179,7 @@ function DayOff({open, onClose, employeeId, employeeName, onApplied}){
         }
 
         try {
-            await axios.post(`member/${employeeId}/dayOff`, {dayOff: dayOff});
+            await axios.post(process.env.REACT_APP_DB_HOST + `/member/${employeeId}/dayOff`, {dayOff: dayOff});
             alert('연차 신청이 완료 되었습니다.');
 
             onApplied && onApplied();
@@ -264,7 +264,7 @@ function EmpList() {
     const fetchData = async (pageNumber = 1, param = searchParams) => {
         try {
             const page = pageNumber - 1; // Spring Boot는 페이지 인덱스가 0부터 시작
-            const response = await fetch(`/member?page=${page}&size=${itemsPerPage}&name=${param.name}&startDate=${param.startDate}&endDate=${param.endDate}`);
+            const response = await fetch(process.env.REACT_APP_DB_HOST + `/member?page=${page}&size=${itemsPerPage}&name=${param.name}&startDate=${param.startDate}&endDate=${param.endDate}`);
             const data = await response.json();
 
             setEmployee(data.content); // 현재 페이지의 데이터 저장
@@ -331,7 +331,7 @@ function EmpList() {
     //출근하기
     const handleStartWork = async (employeeId) => {
         try{
-            const response = await axios.post('/member/startWork', {
+            const response = await axios.post(process.env.REACT_APP_DB_HOST + '/member/startWork', {
                 employeeId: employeeId
             });
             alert("출근 처리 되었습니다.");
@@ -345,7 +345,7 @@ function EmpList() {
     //퇴근하기
     const handleEndWork = async (employeeId) => {
         try {
-            const response = await axios.post('/member/endWork', {
+            const response = await axios.post(process.env.REACT_APP_DB_HOST + '/member/endWork', {
                 employeeId: employeeId
             });
             alert("퇴근 처리 되었습니다.");

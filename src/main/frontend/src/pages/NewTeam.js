@@ -68,7 +68,7 @@ function NewTeam(){
     useEffect(() => {
         //id가 존재하면 수정
         if(id){
-            axios.get(`/team/${id}`)
+            axios.get(process.env.REACT_APP_DB_HOST + `/team/${id}`)
                 .then(res => {
                     setFormData(res.data.team);
                     setTeamList(res.data.list);
@@ -84,7 +84,7 @@ function NewTeam(){
         e.preventDefault();
 
         if(id){//수정 저장
-            axios.put(`/team/${id}`, formData)
+            axios.put(process.env.REACT_APP_DB_HOST + `/team/${id}`, formData)
                 .then(() => {
                     alert('팀 정보가 수정 되었습니다.');
                     navigate("/teamList");
@@ -94,7 +94,7 @@ function NewTeam(){
                     alert('팀 정보 수정 중 오류가 발생했습니다.');
                 });
         } else {//등록 저장
-            axios.post('/team', formData)
+            axios.post(process.env.REACT_APP_DB_HOST + '/team', formData)
                 .then(() => {
                     alert('팀 정보가 등록 되었습니다.');
                     navigate('/teamList');
@@ -113,7 +113,7 @@ function NewTeam(){
             return;
         }
 
-        axios.delete(`/team/${id}`)
+        axios.delete(process.env.REACT_APP_DB_HOST + `/team/${id}`)
             .then(() => {
                 alert('팀 정보가 삭제 되었습니다.');
                 navigate('/teamList');

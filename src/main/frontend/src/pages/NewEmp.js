@@ -34,7 +34,7 @@ function NewEmp(){
 
     //팀 select 조회
     useEffect(() => {
-        axios.get(`/teams`)
+        axios.get(process.env.REACT_APP_DB_HOST + `/teams`)
             .then(res => {
                 setTeamList(res.data);
             })
@@ -72,7 +72,7 @@ function NewEmp(){
     useEffect(() => {
         //id가 존재하면 수정
         if(id){
-            axios.get(`/member/${id}`)
+            axios.get(process.env.REACT_APP_DB_HOST + `/member/${id}`)
                 .then(res => {
                     setFormData(res.data);
                     console.log(res.data);
@@ -88,7 +88,7 @@ function NewEmp(){
         e.preventDefault();
 
         if(id){//수정 저장
-            axios.put(`/member/${id}`, formData)
+            axios.put(process.env.REACT_APP_DB_HOST + `/member/${id}`, formData)
                 .then(() => {
                     alert('직원 정보가 수정 되었습니다.');
                     navigate("/empList");
@@ -98,7 +98,7 @@ function NewEmp(){
                     alert('직원 정보 수정 중 오류가 발생했습니다.');
                 });
         } else {//등록 저장
-            axios.post('/member', formData)
+            axios.post(process.env.REACT_APP_DB_HOST + '/member', formData)
                 .then(() => {
                     alert('직원 정보가 등록 되었습니다.');
                     navigate('/empList');
@@ -117,7 +117,7 @@ function NewEmp(){
             return;
         }
 
-        axios.delete(`/member/${id}`)
+        axios.delete(process.env.REACT_APP_DB_HOST + `/member/${id}`)
             .then(() => {
                 alert('직원 정보가 삭제 되었습니다.');
                 navigate('/empList');
